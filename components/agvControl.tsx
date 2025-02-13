@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
-    TableFooter,
     TableHead,
     TableHeader,
     TableRow,
@@ -14,6 +12,7 @@ import {
 import { initializeFirebase } from "@/lib/firebase";
 import { getDatabase, onValue, ref, update } from "@firebase/database";
 import { FirebaseError } from "@firebase/app";
+import { MoveUpLeft, MoveDownLeft, MoveUpRight, MoveDownRight } from "lucide-react";
 
 initializeFirebase();
 
@@ -62,45 +61,86 @@ const AGVControl = () => {
 
     return (
         <div>
-            <div className={"flex flex-col gap-4 pb-4"}>
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead>Pin</TableHead>
-                            <TableHead>Status</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell>Pin 1</TableCell>
-                            <TableCell>{pins.pin1}</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>Pin 2</TableCell>
-                            <TableCell>{pins.pin2}</TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
+            <div className={"flex flex-col gap-4 pb-4 w-full"}>
+                {/*<Table className={"select-none"}>*/}
+                {/*    <TableHeader>*/}
+                {/*        <TableRow>*/}
+                {/*            <TableHead>Pin</TableHead>*/}
+                {/*            <TableHead>Status</TableHead>*/}
+                {/*        </TableRow>*/}
+                {/*    </TableHeader>*/}
+                {/*    <TableBody>*/}
+                {/*        <TableRow>*/}
+                {/*            <TableCell>*/}
+                {/*                <code className={"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"}>*/}
+                {/*                    Pin 1*/}
+                {/*                </code>*/}
+                {/*            </TableCell>*/}
+                {/*            <TableCell>*/}
+                {/*                <code className={"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"}>*/}
+                {/*                    {pins.pin1}*/}
+                {/*                </code>*/}
+                {/*            </TableCell>*/}
+                {/*        </TableRow>*/}
+                {/*        <TableRow>*/}
+                {/*            <TableCell>*/}
+                {/*                <code className={"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"}>*/}
+                {/*                    Pin 2*/}
+                {/*                </code>*/}
+                {/*            </TableCell>*/}
+                {/*            <TableCell>*/}
+                {/*                <code className={"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"}>*/}
+                {/*                    {pins.pin2}*/}
+                {/*                </code>*/}
+                {/*            </TableCell>*/}
+                {/*        </TableRow>*/}
+                {/*    </TableBody>*/}
+                {/*</Table>*/}
 
             </div>
             <div className={"flex flex-row gap-4"}>
-                <Button
-                    onMouseDown={() => handlePinUpdate('pin1', 1)}
-                    onMouseUp={() => handlePinUpdate('pin1', 0)}
-                    onTouchStart={() => handlePinUpdate('pin1', 1)}
-                    onTouchEnd={() => handlePinUpdate('pin1', 0)}
-                >
-                    Hold Pin 1
-                </Button>
-                <Button
-                    onMouseDown={() => handlePinUpdate('pin2', 1)}
-                    onMouseUp={() => handlePinUpdate('pin2', 0)}
-                    onTouchStart={() => handlePinUpdate('pin2', 1)}
-                    onTouchEnd={() => handlePinUpdate('pin2', 0)}
-                >
-                    Hold Pin 2
-                </Button>
+                <div className={"flex flex-col gap-4"}>
+                    <Button
+                        onMouseDown={() => handlePinUpdate('pin1', 1)}
+                        onMouseUp={() => handlePinUpdate('pin1', 0)}
+                        onTouchStart={() => handlePinUpdate('pin1', 1)}
+                        onTouchEnd={() => handlePinUpdate('pin1', 0)}
+                        size={"lg"}
+                    >
+                        <MoveUpLeft />
+                    </Button>
+                    <Button
+                        onMouseDown={() => handlePinUpdate('pin2', 1)}
+                        onMouseUp={() => handlePinUpdate('pin2', 0)}
+                        onTouchStart={() => handlePinUpdate('pin2', 1)}
+                        onTouchEnd={() => handlePinUpdate('pin2', 0)}
+                        size={"lg"}
+                    >
+                        <MoveDownLeft />
+                    </Button>
+                </div>
+                <div className={"flex flex-col gap-4"}>
+                    <Button
+                        onMouseDown={() => handlePinUpdate('pin1', 1)}
+                        onMouseUp={() => handlePinUpdate('pin1', 0)}
+                        onTouchStart={() => handlePinUpdate('pin1', 1)}
+                        onTouchEnd={() => handlePinUpdate('pin1', 0)}
+                        size={"lg"}
+                    >
+                        <MoveUpRight />
+                    </Button>
+                    <Button
+                        onMouseDown={() => handlePinUpdate('pin2', 1)}
+                        onMouseUp={() => handlePinUpdate('pin2', 0)}
+                        onTouchStart={() => handlePinUpdate('pin2', 1)}
+                        onTouchEnd={() => handlePinUpdate('pin2', 0)}
+                        size={"lg"}
+                    >
+                        <MoveDownRight />
+                    </Button>
+                </div>
             </div>
+
         </div>
     );
 };
