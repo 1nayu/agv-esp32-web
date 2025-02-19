@@ -171,19 +171,43 @@ const AGVControl = () => {
                 </div>
                 <div className={"flex flex-col gap-4"}>
                     <Button
-                        onMouseDown={() => handlePinUpdate('pin1', 1)}
-                        onMouseUp={() => handlePinUpdate('pin1', 0)}
-                        onTouchStart={() => handlePinUpdate('pin1', 1)}
-                        onTouchEnd={() => handlePinUpdate('pin1', 0)}
+                        onMouseDown={() => {
+                            handlePinUpdate('pin1', 1)
+                            handlePinUpdate('pin4', 1)
+                        }}
+                        onMouseUp={() => {
+                            handlePinUpdate('pin1', 0)
+                            handlePinUpdate('pin4', 0)
+                        }}
+                        onTouchStart={() => {
+                            handlePinUpdate('pin1', 1)
+                            handlePinUpdate('pin4', 1)
+                        }}
+                        onTouchEnd={() => {
+                            handlePinUpdate('pin1', 0)
+                            handlePinUpdate('pin4', 0)
+                        }}
                         size={"lg"}
                     >
                         <MoveUpLeft />
                     </Button>
                     <Button
-                        onMouseDown={() => handlePinUpdate('pin2', 1)}
-                        onMouseUp={() => handlePinUpdate('pin2', 0)}
-                        onTouchStart={() => handlePinUpdate('pin2', 1)}
-                        onTouchEnd={() => handlePinUpdate('pin2', 0)}
+                        onMouseDown={() => {
+                            handlePinUpdate('pin2', 1)
+                            handlePinUpdate('pin3', 1)
+                        }}
+                        onMouseUp={() => {
+                            handlePinUpdate('pin2', 0)
+                            handlePinUpdate('pin3', 0)
+                        }}
+                        onTouchStart={() => {
+                            handlePinUpdate('pin2', 1)
+                            handlePinUpdate('pin3', 1)
+                        }}
+                        onTouchEnd={() => {
+                            handlePinUpdate('pin2', 0)
+                            handlePinUpdate('pin3', 0)
+                        }}
                         size={"lg"}
                     >
                         <MoveDownLeft />
@@ -191,10 +215,22 @@ const AGVControl = () => {
                 </div>
                 <div className={"flex flex-col gap-4"}>
                     <Button
-                        onMouseDown={() => handlePinUpdate('pin3', 1)}
-                        onMouseUp={() => handlePinUpdate('pin3', 0)}
-                        onTouchStart={() => handlePinUpdate('pin3', 1)}
-                        onTouchEnd={() => handlePinUpdate('pin3', 0)}
+                        onMouseDown={() => {
+                            handlePinUpdate('pin3', 1)
+                            handlePinUpdate('pin2', 1)
+                        }}
+                        onMouseUp={() => {
+                            handlePinUpdate('pin3', 0)
+                            handlePinUpdate('pin2', 0)
+                        }}
+                        onTouchStart={() => {
+                            handlePinUpdate('pin3', 1)
+                            handlePinUpdate('pin2', 1)
+                        }}
+                        onTouchEnd={() => {
+                            handlePinUpdate('pin3', 0)
+                            handlePinUpdate('pin2', 0)
+                        }}
                         size={"lg"}
                     >
                         <MoveUpRight />
